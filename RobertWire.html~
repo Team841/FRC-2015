@@ -27,7 +27,10 @@
 	        <th class="pound">#</th>
 	        <th>Motor</th></tr>
 	                  	    <tr><td>0</td><td>DriveTrian LefDrive1</td></tr>
-	                                                                                                                                                                                                                                                                                                                 	    </table>
+	            	    <tr><td>1</td><td>DriveTrian LeftDrive2</td></tr>
+	            	    <tr><td>2</td><td>DriveTrian RightDrive1</td></tr>
+	            	    <tr><td>3</td><td>DriveTrian RightDrive2</td></tr>
+	                                                                                                                                                                                                                                                                             	    </table>
     
             
             

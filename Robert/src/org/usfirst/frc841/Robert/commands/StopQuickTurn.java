@@ -17,9 +17,9 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
-public class  Drive extends Command {
+public class  StopQuickTurn extends Command {
 
-    public Drive() {
+    public StopQuickTurn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -31,28 +31,24 @@ public class  Drive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.InitCompressor();  
     }
-    
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.Drive(Robot.oi.getDriver());
+    	Robot.driveTrain.resetQuickTurn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.SetLeftRight(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

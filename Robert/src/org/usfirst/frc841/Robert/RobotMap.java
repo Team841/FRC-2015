@@ -15,6 +15,7 @@ package org.usfirst.frc841.Robert;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -35,6 +36,7 @@ public class RobotMap {
     public static SpeedController driveTrainRightDrive1;
     public static SpeedController driveTrainLeftDrive2;
     public static SpeedController driveTrainRightDrive2;
+    public static Gyro driveTrainGyro1;
     public static SpeedController elevatorElevatorDrive1;
     public static SpeedController elevatorElevatorDrive2;
     public static AnalogInput elevatorHeightSensor;
@@ -61,6 +63,9 @@ public class RobotMap {
         driveTrainRightDrive2 = new VictorSP(8);
         LiveWindow.addActuator("DriveTrain", "RightDrive2", (VictorSP) driveTrainRightDrive2);
         
+        driveTrainGyro1 = new Gyro(1);
+        LiveWindow.addSensor("DriveTrain", "Gyro 1", driveTrainGyro1);
+        driveTrainGyro1.setSensitivity(0.0125);
         elevatorElevatorDrive1 = new VictorSP(1);
         LiveWindow.addActuator("Elevator", "ElevatorDrive1", (VictorSP) elevatorElevatorDrive1);
         

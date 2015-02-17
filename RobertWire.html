@@ -22,13 +22,23 @@
   </head>
   <body>
     <h1>Wiring</h1>
-                                <h2>PWMs</h2>
+                    <h2>DIO</h2>
+	    <table><tr>
+	        <th class="pound">#</th>
+	        <th>Sensor</th></tr>
+	                  	    <tr><td>0</td><td>Tilt HardStopFront</td></tr>
+	            	    <tr><td>1</td><td>Tilt HardStopBack</td></tr>
+	                                                                                                                                                                                                                                                                                                     	    </table>
+                        <h2>PWMs</h2>
 	    <table><tr>
 	        <th class="pound">#</th>
 	        <th>Motor</th></tr>
 	                  	    <tr><td>0</td><td>Elevator ElevatorDrive2</td></tr>
 	            	    <tr><td>1</td><td>Elevator ElevatorDrive1</td></tr>
-	                                                            	    <tr><td>6</td><td>Intakes IntakeDrive1</td></tr>
+	            	    <tr><td>2</td><td>Tilt TiltMotor</td></tr>
+	            	    <tr><td>3</td><td>Claw ClawMotor</td></tr>
+	            	    <tr><td>4</td><td>Pincers PincerMotor</td></tr>
+	                        	    <tr><td>6</td><td>Intakes IntakeDrive1</td></tr>
 	            	    <tr><td>7</td><td>Intakes IntakeDrive2</td></tr>
 	            	    <tr><td>8</td><td>DriveTrain RightDrive2</td></tr>
 	            	    <tr><td>9</td><td>DriveTrain RightDrive1</td></tr>
@@ -43,14 +53,20 @@
 	        <th class="pound">#</th>
 	        <th>Sensor</th></tr>
 	                  	    <tr><td>0</td><td>Elevator HeightSensor</td></tr>
-	                                                                                                                                                                                                                                                                                                                 	    </table>
+	            	    <tr><td>1</td><td>DriveTrain Gyro 1</td></tr>
+	            	    <tr><td>2</td><td>Tilt  TlitAngleSensor</td></tr>
+	            	    <tr><td>3</td><td>Claw ClawAngleSensor</td></tr>
+	            	    <tr><td>4</td><td>Pincers PincerAngeSensor</td></tr>
+	                                                                                                                                                                                                                                                                 	    </table>
         
                     <h2>PCM 0</h2>
 	    <table><tr>
 	        <th class="pound">#</th>
 	        <th>Solenoid</th></tr>
 	                  	    <tr><td>0</td><td>Intakes IntakeGrabber Forward </td></tr>
-	                                                                                    	    <tr><td>7</td><td>Intakes IntakeGrabber Reverse </td></tr>
+	            	    <tr><td>1</td><td>Claw ClawGrabber Forward </td></tr>
+	            	    <tr><td>2</td><td>Claw ClawGrabber Reverse </td></tr>
+	                                                            	    <tr><td>7</td><td>Intakes IntakeGrabber Reverse </td></tr>
 	                                                                                                                                                                                                                             	    </table>
                                                                                                                                                                                                                                                     
                 <h2>Compressor</h2>

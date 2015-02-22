@@ -44,6 +44,7 @@ public class RobotMap {
     public static SpeedController intakesIntakeDrive1;
     public static SpeedController intakesIntakeDrive2;
     public static DoubleSolenoid intakesIntakeGrabber;
+    public static DigitalInput intakesTotePresent;
     public static SpeedController tiltTiltMotor;
     public static AnalogInput tiltTiltAngleSensor;
     public static DigitalInput tiltHardStopFront;
@@ -93,6 +94,9 @@ public class RobotMap {
         
         intakesIntakeGrabber = new DoubleSolenoid(0, 0, 7);      
         LiveWindow.addActuator("Intakes", "IntakeGrabber", intakesIntakeGrabber);
+        
+        intakesTotePresent = new DigitalInput(2);
+        LiveWindow.addSensor("Intakes", "TotePresent", intakesTotePresent);
         
         tiltTiltMotor = new VictorSP(2);
         LiveWindow.addActuator("Tilt", "TiltMotor", (VictorSP) tiltTiltMotor);

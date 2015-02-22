@@ -263,7 +263,7 @@ public void Drive(Joystick stick){
             leftPwm += overPower * (-1.0 - rightPwm);
             rightPwm = -1.0;
         } 
-        SetLeftRight(-leftPwm,-rightPwm);
+        SetLeftRight(leftPwm,-rightPwm);
         
     }   
 

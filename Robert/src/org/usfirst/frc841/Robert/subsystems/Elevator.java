@@ -11,6 +11,7 @@
 
 package org.usfirst.frc841.Robert.subsystems;
 
+import org.usfirst.frc841.Robert.Robot;
 import org.usfirst.frc841.Robert.RobotMap;
 import org.usfirst.frc841.Robert.commands.*;
 import org.usfirst.frc841.Robert.lib.PIDLoop;
@@ -37,11 +38,14 @@ public class Elevator extends Subsystem {
   	private double Y[] = {0,0,0};
   	private double X[] = {0,1,2};
   	private int period = 100; //mSec 
-  	private double kp = 1.7;
-  	private double ki = 0.01;
-  	private double kd = 0.07;
-  	private double Setpoint = 3.25;
-  	private boolean EnablePID = false;
+  	private double kp = 1.7; // P
+  	private double ki = 0.01; // I
+  	private double kd = 0.07; // D
+  	private double Setpoint = 3.25; //goal
+  	private boolean EnablePID = false; // PID loop enable 
+  	private boolean reachDestination = false; // PID within range
+  	private double upperlimit = 4.5;
+  	private double lowerlimit = 0.3;
  
   	 Timer ControllerTimer;
   	 PIDLoop cloop;
@@ -78,6 +82,13 @@ public class Elevator extends Subsystem {
     					elevator.cloop.SetTunings(elevator.kp,elevator.ki,elevator.kd);
     					elevator.cloop.SetReference(Setpoint);
     					elevator.SetMotors(elevator.cloop.Compute(elevator.GetHieght()));
+    					
+    					if ( (Setpoint - (Setpoint* 0.03)) < elevator.GetHieght() && elevator.GetHieght() < (Setpoint + (Setpoint* 0.03))){
+    						reachDestination = true;
+    					}
+    					else{
+    						reachDestination = false;
+    					}
     				}
    
     			}
@@ -98,6 +109,9 @@ public class Elevator extends Subsystem {
      	Setpoint = goal;
      		
      }
+     public boolean reachDestination() {
+     	return reachDestination;
+     }
      
     
     public void initDefaultCommand() {
@@ -114,8 +128,18 @@ public class Elevator extends Subsystem {
     	return heightSensor.getVoltage();
     }
     public void SetMotors(double power){
-    	elevatorDrive1.set( power );
-    	elevatorDrive2.set( power );
+    	if( this.GetHieght() > lowerlimit && this.GetHieght() < upperlimit)
+    	{
+    		elevatorDrive1.set( power );
+    		elevatorDrive2.set( power );
+    	}
+    	else{
+    		EnablePID = false;
+    		Joystick stick = Robot.oi.getCoDriver();
+    		//stick.
+    		elevatorDrive1.set( 0 );
+    		elevatorDrive2.set( 0 );
+    	}
     }
 
 

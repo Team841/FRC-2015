@@ -33,6 +33,7 @@ public class  BringInTote extends Command {
     protected void initialize() {
     	Robot.intakes.pullInMotor();
     	Robot.intakes.closeIntakes();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -41,11 +42,12 @@ public class  BringInTote extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.intakes.isTotePresent();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.intakes.stopIntakeMotor();
     }
 
     // Called when another command which requires one or more of the same

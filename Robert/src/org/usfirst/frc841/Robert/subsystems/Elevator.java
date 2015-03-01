@@ -45,7 +45,7 @@ public class Elevator extends Subsystem {
   	private boolean EnablePID = false; // PID loop enable 
   	private boolean reachDestination = false; // PID within range
   	private double upperlimit = 4.5;
-  	private double lowerlimit = 0.3;
+  	private double lowerlimit = 0.0;
  
   	 Timer ControllerTimer;
   	 PIDLoop cloop;

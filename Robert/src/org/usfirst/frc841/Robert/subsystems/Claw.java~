@@ -38,10 +38,10 @@ public class Claw extends Subsystem {
 	private double Y[] = {0,0,0};
   	private double X[] = {0,1,2};
   	private int period = 100; //mSec 
-  	private double kp = 0.0; // P
-  	private double ki = 0.00; // I
-  	private double kd = 0.00; // D
-  	private double Setpoint = 3.25; //goal
+  	private double kp = 6; // P
+  	private double ki = 0.01; // I
+  	private double kd = 0.09; // D
+  	private double Setpoint = 3.107; //goal
   	private boolean EnablePID = false; // PID loop enable 
   	private boolean reachDestination = false; // PID within range
   	private double upperlimit = 4.5;
@@ -68,9 +68,10 @@ public class Claw extends Subsystem {
 	    	public Update(Claw claw){
 	    		this.claw = claw; 
 	 
-	    	}
+	    	} 
 			@Override
 			public void run() {
+				claw.EnablePID = true;
 				// TODO Auto-generated method stub
 				if (claw.EnablePID){
 					claw.cloop.SetTunings(claw.kp,claw.ki,claw.kd);

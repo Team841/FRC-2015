@@ -38,10 +38,10 @@ public class Tilt extends Subsystem {
     private double Y[] = {0,0,0};
   	private double X[] = {0,1,2};
   	private int period = 100; //mSec 
-  	private double kp = 1.7;
+  	private double kp = 8;
   	private double ki = 0.01;
-  	private double kd = 0.07;
-  	private double Setpoint = 3.25;
+  	private double kd = .25;
+  	private double Setpoint = 0.223;
   	private boolean EnablePID = false;
   	private boolean reachDestination = false;
  
@@ -77,6 +77,7 @@ public class Tilt extends Subsystem {
     			public void run() {
     				// TODO Auto-generated method stub
     				//Implements PID Loop
+    				tilt.EnablePID = true;
     				if (tilt.EnablePID){
     					tilt.cloop.SetTunings(tilt.kp,tilt.ki,tilt.kd);
     					tilt.cloop.SetReference(Setpoint);
@@ -124,12 +125,12 @@ public class Tilt extends Subsystem {
     }
 
     public void SetMotors(double power) {
-    	if(hardStopFront.get() || hardStopBack.get()){
-    		tiltMotor.set(0);
-    	}
-    	else{
-    		tiltMotor.set(power);
-    	}
+    	//if(hardStopFront.get() || hardStopBack.get()){
+    	//	tiltMotor.set(0);
+    	//}
+    	//else{
+    		tiltMotor.set(-power);
+    	//}
     	
     }
     public double GetAngle() {

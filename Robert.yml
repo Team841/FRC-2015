@@ -199,13 +199,13 @@ Children:
           default: '0'
           name: Reverse Channel (Solenoid)
           validators: &id013 [Solenoid]
-          value: '7'
+          value: '6'
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id014 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Forward Channel (Solenoid)
           validators: &id015 [Solenoid]
-          value: '0'
+          value: '1'
       Base: Double Solenoid
       Name: IntakeGrabber
     - Children: []
@@ -325,13 +325,13 @@ Children:
           default: '0'
           name: Reverse Channel (Solenoid)
           validators: *id013
-          value: '2'
+          value: '7'
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: '0'
           name: Forward Channel (Solenoid)
           validators: *id015
-          value: '1'
+          value: '0'
       Base: Double Solenoid
       Name: ClawGrabber
     Properties:
@@ -641,7 +641,7 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Tilt}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: SetElevatorAngle
   - Children: []
@@ -665,7 +665,7 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Claw}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: SetClawAngle
   Properties: {}

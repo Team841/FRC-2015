@@ -92,7 +92,7 @@ public class RobotMap {
         intakesIntakeDrive2 = new VictorSP(7);
         LiveWindow.addActuator("Intakes", "IntakeDrive2", (VictorSP) intakesIntakeDrive2);
         
-        intakesIntakeGrabber = new DoubleSolenoid(0, 0, 7);      
+        intakesIntakeGrabber = new DoubleSolenoid(0, 1, 6);      
         LiveWindow.addActuator("Intakes", "IntakeGrabber", intakesIntakeGrabber);
         
         intakesTotePresent = new DigitalInput(2);
@@ -116,7 +116,7 @@ public class RobotMap {
         clawClawAngleSensor = new AnalogInput(3);
         LiveWindow.addSensor("Claw", "ClawAngleSensor", clawClawAngleSensor);
         
-        clawClawGrabber = new DoubleSolenoid(0, 1, 2);      
+        clawClawGrabber = new DoubleSolenoid(0, 0, 7);      
         LiveWindow.addActuator("Claw", "ClawGrabber", clawClawGrabber);
         
         pincersPincerMotor = new VictorSP(4);

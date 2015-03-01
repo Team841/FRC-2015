@@ -28,7 +28,8 @@
 	        <th>Sensor</th></tr>
 	                  	    <tr><td>0</td><td>Tilt HardStopFront</td></tr>
 	            	    <tr><td>1</td><td>Tilt HardStopBack</td></tr>
-	                                                                                                                                                                                                                                                                                                     	    </table>
+	            	    <tr><td>2</td><td>Intakes TotePresent</td></tr>
+	                                                                                                                                                                                                                                                                                         	    </table>
                         <h2>PWMs</h2>
 	    <table><tr>
 	        <th class="pound">#</th>

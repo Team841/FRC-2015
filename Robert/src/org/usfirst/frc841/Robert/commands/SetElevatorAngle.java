@@ -17,6 +17,7 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
+
 public class  SetElevatorAngle extends Command {
 	double setAngle;
     public SetElevatorAngle(double setAngle) {
@@ -54,3 +55,4 @@ public class  SetElevatorAngle extends Command {
     protected void interrupted() {
     }
 }
+

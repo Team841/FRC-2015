@@ -17,6 +17,7 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
+
 public class  StopQuickTurn extends Command {
 
     public StopQuickTurn() {
@@ -52,3 +53,4 @@ public class  StopQuickTurn extends Command {
     protected void interrupted() {
     }
 }
+

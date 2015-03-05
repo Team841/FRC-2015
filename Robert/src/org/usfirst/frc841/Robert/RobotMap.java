@@ -52,6 +52,7 @@ public class RobotMap {
     public static SpeedController clawClawMotor;
     public static AnalogInput clawClawAngleSensor;
     public static DoubleSolenoid clawClawGrabber;
+    public static DigitalInput clawBinPresent;
     public static SpeedController pincersPincerMotor;
     public static AnalogInput pincersPincersAngleSensor;
 
@@ -118,6 +119,9 @@ public class RobotMap {
         
         clawClawGrabber = new DoubleSolenoid(0, 0, 7);      
         LiveWindow.addActuator("Claw", "ClawGrabber", clawClawGrabber);
+        
+        clawBinPresent = new DigitalInput(5);
+        LiveWindow.addSensor("Claw", "BinPresent", clawBinPresent);
         
         pincersPincerMotor = new VictorSP(4);
         LiveWindow.addActuator("Pincers", "PincerMotor", (VictorSP) pincersPincerMotor);

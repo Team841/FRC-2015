@@ -36,21 +36,27 @@ public class PickUpTote extends CommandGroup {
         // arm.
     	
     	//Keep the angle of the elevator at 65 deg
-    	addParallel(new SetElevatorAngle(2));
+    	addParallel(new SetElevatorAngle( .233 ));
     	//bring down the carrage to to the top of the one tote
     	addSequential(new SetElevatorHeight(2));
     	
     	//change the angle off the elevator to 90 deg
-    	addParallel(new SetElevatorAngle(2.2));
-    	//bring down the carrage at the same time to the pickup point of the bottom tote
-    	addSequential(new SetElevatorHeight(1));
+    	addParallel(new SetElevatorAngle( .52));
+    	//bring down the carriage at the same time to the pickup point of the bottom tote
+    	addSequential(new SetElevatorHeight( .0011 ));
+    	
+    	//Open Intakes
+    	addParallel(new ReleaseTote());
+    	
+    	//Turn on Intakes
+    	addSequential(new BringInTote()); 
     	
     	//bring carrage up to to pick up tote slightly off the ground
-    	addSequential(new SetElevatorHeight(1.5));
+    	addSequential(new SetElevatorHeight( 0.027 ));
     	//tilt the elevator back to 65 deg
 
     	//bring carrage up to stored level.
-    	addSequential( new SetElevatorHeight(3));
+    	addSequential( new SetElevatorHeight( 0.027 ));
     	
     }
 }

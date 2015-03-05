@@ -13,8 +13,9 @@ package org.usfirst.frc841.Robert.subsystems;
 
 import org.usfirst.frc841.Robert.RobotMap;
 import org.usfirst.frc841.Robert.commands.*;
-import edu.wpi.first.wpilibj.*;
 
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 

@@ -18,6 +18,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousRecyclingBinDrive extends CommandGroup {
     
     public  AutonomousRecyclingBinDrive() {    	
+    	
+    	addSequential(new DriveMoveForward());
+    	addSequential(new WaitCommand(3));
+    	addSequential(new DriveStop());
+    	addSequential( new WaitCommand(15));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

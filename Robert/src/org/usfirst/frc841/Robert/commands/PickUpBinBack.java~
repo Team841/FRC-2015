@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+
 public class PickUpBinBack extends CommandGroup {
     
     public  PickUpBinBack() {
@@ -39,6 +40,12 @@ public class PickUpBinBack extends CommandGroup {
     	addParallel(new OpenClaw());
     	
     	//It will go directly to the angle associated with this value
-    	addSequential(new SetClawAngle( 2 ));
+    	addSequential(new SetClawAngle( .865 ));
+    	
+    	//It will go up a little bt so it will tilt the bin over 
+    	addSequential(new SetClawAngle( .974 ));
+    	
+    	//This will close the claw automatically
+    	addParallel(new CloseClaw());
     }
 }

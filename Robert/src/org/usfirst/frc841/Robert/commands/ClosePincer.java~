@@ -17,6 +17,7 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
+
 public class  ClosePincer extends Command {
 
     public ClosePincer() {
@@ -53,3 +54,4 @@ public class  ClosePincer extends Command {
     protected void interrupted() {
     }
 }
+

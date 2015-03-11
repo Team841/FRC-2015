@@ -14,9 +14,12 @@ package org.usfirst.frc841.Robert;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -35,8 +38,11 @@ public class RobotMap {
     public static Compressor driveTrainCompressor1;
     public static SpeedController driveTrainLeftDrive1;
     public static SpeedController driveTrainRightDrive1;
+    public static Encoder driveTrainLeftQuad;
+    public static Encoder driveTrainRightQuad;
     public static SpeedController driveTrainLeftDrive2;
     public static SpeedController driveTrainRightDrive2;
+    public static DoubleSolenoid driveTrainShifter;
     public static Gyro driveTrainGyro1;
     public static SpeedController elevatorElevatorDrive1;
     public static SpeedController elevatorElevatorDrive2;
@@ -69,11 +75,22 @@ public class RobotMap {
         driveTrainRightDrive1 = new VictorSP(9);
         LiveWindow.addActuator("DriveTrain", "RightDrive1", (VictorSP) driveTrainRightDrive1);
         
+        driveTrainLeftQuad = new Encoder(3, 4, false, EncodingType.k4X);
+        LiveWindow.addSensor("DriveTrain", "LeftQuad", driveTrainLeftQuad);
+        driveTrainLeftQuad.setDistancePerPulse(1.0);
+        driveTrainLeftQuad.setPIDSourceParameter(PIDSourceParameter.kRate);
+        driveTrainRightQuad = new Encoder(6, 7, false, EncodingType.k4X);
+        LiveWindow.addSensor("DriveTrain", "RightQuad", driveTrainRightQuad);
+        driveTrainRightQuad.setDistancePerPulse(1.0);
+        driveTrainRightQuad.setPIDSourceParameter(PIDSourceParameter.kRate);
         driveTrainLeftDrive2 = new VictorSP(11);
         LiveWindow.addActuator("DriveTrain", "LeftDrive2", (VictorSP) driveTrainLeftDrive2);
         
         driveTrainRightDrive2 = new VictorSP(8);
         LiveWindow.addActuator("DriveTrain", "RightDrive2", (VictorSP) driveTrainRightDrive2);
+        
+        driveTrainShifter = new DoubleSolenoid(0, 2, 5);      
+        LiveWindow.addActuator("DriveTrain", "Shifter", driveTrainShifter);
         
         driveTrainGyro1 = new Gyro(1);
         LiveWindow.addSensor("DriveTrain", "Gyro 1", driveTrainGyro1);

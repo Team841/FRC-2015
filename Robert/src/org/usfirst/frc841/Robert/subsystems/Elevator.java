@@ -46,7 +46,7 @@ public class Elevator extends Subsystem {
   	private boolean reachDestination = false; // PID within range
   	private double upperlimit = 4.5;
   	private double lowerlimit = 0.0;
- 
+  	private boolean isManualMode = false;
   	 Timer ControllerTimer;
   	 PIDLoop cloop;
     
@@ -76,19 +76,17 @@ public class Elevator extends Subsystem {
     			@Override
     			public void run() {
     				// TODO Auto-generated method stub
-    				
+    				double input = elevator.GetHieght();
     				//Implements PID Loop
     				if (elevator.EnablePID){
     					elevator.cloop.SetTunings(elevator.kp,elevator.ki,elevator.kd);
     					elevator.cloop.SetReference(Setpoint);
-    					elevator.SetMotors(elevator.cloop.Compute(elevator.GetHieght()));
+    					elevator.SetMotors(elevator.cloop.Compute(input));
     					
-    					if ( (Setpoint - (Setpoint* 0.03)) < elevator.GetHieght() && elevator.GetHieght() < (Setpoint + (Setpoint* 0.03))){
+    					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.05) ){
     						reachDestination = true;
     					}
-    					else{
-    						reachDestination = false;
-    					}
+    				
     				}
    
     			}
@@ -105,7 +103,7 @@ public class Elevator extends Subsystem {
      	EnablePID = false;
      }
      public void SetGoal(double goal){
-     	
+     	reachDestination = false;
      	Setpoint = goal;
      		
      }
@@ -135,13 +133,29 @@ public class Elevator extends Subsystem {
     	}
     	else{
     		EnablePID = false;
-    		Joystick stick = Robot.oi.getCoDriver();
+    		
     		//stick.
     		elevatorDrive1.set( 0 );
     		elevatorDrive2.set( 0 );
     	}
     }
-
+    public void manualLift(Joystick stick){
+    	
+    	if(stick.getY() > 0.5){
+    	//lower elevator
+    		this.SetMotors(0.5);
+    	}
+    	else{
+    		if(stick.getY() < -0.5){
+    			//raise elevator
+    		this.SetMotors(-0.5);
+    		}
+    		else{
+    			this.SetMotors(0);
+    		}
+    	}
+    		
+    }
 
  
 

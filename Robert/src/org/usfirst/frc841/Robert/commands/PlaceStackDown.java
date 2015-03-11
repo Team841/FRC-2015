@@ -17,7 +17,19 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class PlaceStackDown extends CommandGroup {
     
-    public  PlaceStackDown() {
+    public  PlaceStackDown() {//.714
+    	addSequential(new ReleaseTote());
+    	addSequential(new SetElevatorHeight(.714));
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle(0.377)); //tilt half way
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(0.682)); //bring all the way down
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle(0.515));
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(0.305));
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new HoldTote());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -36,14 +48,14 @@ public class PlaceStackDown extends CommandGroup {
         // arm.
     	
     	//Open up intakes by calling Release tote command
-    	addParallel(new ReleaseTote());
+    	//addParallel(new ReleaseTote());
     	//keep the elevator at 65 degs
-    	addSequential(new SetElevatorAngle( .233 ));
+    	//addSequential(new SetElevatorAngle( .233 ));
     	//Then, the elevator tilt to 90 degs
-    	addParallel(new SetElevatorAngle( .52 ));
+    	//addParallel(new SetElevatorAngle( .52 ));
     	//Then, move the carriage down to one tote level
-    	addSequential(new SetElevatorHeight(2));
+    	//addSequential(new SetElevatorHeight(2));
     	//Also, move the carriage down to pick up level
-    	addSequential(new SetElevatorHeight(1));
+    	//addSequential(new SetElevatorHeight(1));
     }
 }

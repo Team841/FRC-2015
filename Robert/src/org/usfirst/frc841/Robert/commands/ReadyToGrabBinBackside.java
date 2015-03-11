@@ -15,11 +15,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-
-public class HuanSatckerDown extends CommandGroup {
+public class ReadyToGrabBinBackside extends CommandGroup {
     
-    public  HuanSatckerDown() {
-        // Add Commands here:
+    public  ReadyToGrabBinBackside() {
+    	addParallel( new OpenClaw());
+    	addSequential(new SetClawAngle(0.769));
+        
+    	
+    	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -35,15 +38,5 @@ public class HuanSatckerDown extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
-    	//Change the elevator angle to 65 deg
-    	addSequential(new SetElevatorAngle( .233 ));
-    	
-    	//Keep the angle of the elevator at 90 deg
-    	addParallel(new SetElevatorAngle( .52 ));
-    
-    	//Bring carriage down to 2 totes high
-    	addSequential(new SetElevatorHeight( 1 ));
-    	
     }
 }

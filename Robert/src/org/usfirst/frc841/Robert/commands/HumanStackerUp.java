@@ -42,7 +42,7 @@ public class HumanStackerUp extends CommandGroup {
     	//Change the elevator angle to 65 deg
     	addSequential(new SetElevatorAngle( .233 ));
     	
-    	//bring up the carriage right below the handle before picking it up
+    	//Move the carriage right below the handle of the set
     	addSequential(new SetElevatorHeight( 1.465 ));
     	
     	//Keep the angle of the elevator at 90 deg

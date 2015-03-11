@@ -17,7 +17,7 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
-/*
+
 public class  HoldTote extends Command {
 
     public HoldTote() {
@@ -55,4 +55,4 @@ public class  HoldTote extends Command {
     protected void interrupted() {
     }
 }
-*/
+

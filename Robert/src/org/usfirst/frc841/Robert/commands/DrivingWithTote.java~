@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+
 public class DrivingWithTote extends CommandGroup {
     
     public  DrivingWithTote() {
@@ -38,14 +39,19 @@ public class DrivingWithTote extends CommandGroup {
         // arm.
     	
     	//Keep the angle of the elevator at 65 deg
-    	addParallel(new SetElevatorAngle( 2 ));
+    	addParallel(new SetElevatorAngle( .233 ));
+    	/*
     	//bring down the carrage to to the top of the one tote
-    	addSequential(new SetElevatorHeight( 2 ));
+    	addSequential(new SetElevatorHeight( .011 ));
+    	
+    	I put this in her, but can't remember why
+    	*/
     	
     	//change the angle off the elevator to 90 deg
-    	addParallel(new SetElevatorAngle(2.2));
+    	addParallel(new SetElevatorAngle( .52 ));
+    	
     	//bring down the carrage at the same time to the pickup point of the bottom tote
-    	addSequential(new SetElevatorHeight(1));  
+    	addSequential(new SetElevatorHeight( .011 ));  
     	   
     	//Open Intakes
     	addParallel(new ReleaseTote());
@@ -54,7 +60,8 @@ public class DrivingWithTote extends CommandGroup {
     	
     	
     	//bring carriage up to to pick up tote slightly off the ground
-    	addSequential(new SetElevatorHeight( 1.5 ));
+    	addSequential(new SetElevatorHeight( .027 ));
     	 
     }
 }
+

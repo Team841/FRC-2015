@@ -17,6 +17,7 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
+
 public class  ReleaseTote extends Command {
 
     public ReleaseTote() {

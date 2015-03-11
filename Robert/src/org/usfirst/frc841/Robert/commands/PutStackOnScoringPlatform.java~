@@ -36,12 +36,12 @@ public class PutStackOnScoringPlatform extends CommandGroup {
         // arm.
     	
     	//Keep the angle off the elevator to 90 deg
-    	addParallel(new SetElevatorAngle( 2.2 ));
+    	addParallel(new SetElevatorAngle( .52 ));
     	
-    	//bring up the carrage to 2 in. to put on scoring platform
+    	//bring up the tote to 2 ft to put on scoring platform (make sure the bottom of the tote is 2ft above the ground)
     	addSequential(new SetElevatorHeight( .5 ));
     	
-    	//Open Intekes
+    	//Open Intakes
     	addSequential(new ReleaseTote());
     	
     }

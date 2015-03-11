@@ -34,12 +34,5 @@ public class HuanSatckerDown extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
-    	//Keep the angle of the elevator at 90 deg
-    	addParallel(new SetElevatorAngle( 2.2 ));
-    
-    	//Bring carriage down to 2 totes high
-    	addSequential(new SetElevatorHeight( 1 ));
-    	
     }
 }

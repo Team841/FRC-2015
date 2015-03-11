@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+
 public class HumanStackerUp extends CommandGroup {
     
     public  HumanStackerUp() {
@@ -35,14 +36,26 @@ public class HumanStackerUp extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	//bring down the carriage at the same time to the pickup point of the bottom tote
+    	addSequential(new SetElevatorHeight( .0011 ));
+    	
+    	//Change the elevator angle to 65 deg
+    	addSequential(new SetElevatorAngle( .233 ));
+    	
+    	//Move the carriage right below the handle of the set
+    	addSequential(new SetElevatorHeight( 1.465 ));
+    	
     	//Keep the angle of the elevator at 90 deg
-    	addParallel(new SetElevatorAngle( 2.2 ));
-    
-    	//bring down the carrage at the same time to the pickup point of the tote above the bottom tote
-    	addSequential(new SetElevatorHeight( 1.5 ));  
+    	addParallel(new SetElevatorAngle( .52 ));
+    	
+    	//bring down the carriage at the same time to the pickup point of the bottom tote
+    	addSequential(new SetElevatorHeight( 1.992 ));
+    	
+    	//Keep the angle of the elevator at 65 deg
+    	addParallel(new SetElevatorAngle( .233));  
     	
     	//bring up the carriage up above two totes
-    	addSequential(new SetElevatorHeight( 2 ));
+    	addSequential(new SetElevatorHeight( 3.878 ));
     	
     }
 }

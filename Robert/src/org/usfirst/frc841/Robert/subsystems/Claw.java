@@ -39,9 +39,9 @@ public class Claw extends Subsystem {
 	private double Y[] = {0,0,0};
   	private double X[] = {0,1,2};
   	private int period = 100; //mSec 
-  	private double kp = 6; // P
+  	private double kp = 5; // P
   	private double ki = 0.01; // I
-  	private double kd = 0.09; // D
+  	private double kd = 0.05; // D
   	private double Setpoint = 3.107; //goal
   	private boolean EnablePID = false; // PID loop enable 
   	private boolean reachDestination = false; // PID within range
@@ -72,19 +72,19 @@ public class Claw extends Subsystem {
 	    	} 
 			@Override
 			public void run() {
-				claw.EnablePID = true;
+			//	claw.EnablePID = true; // test PID loop. This should be commented out.
 				// TODO Auto-generated method stub
 				if (claw.EnablePID){
+					double input;
+					input = claw.GetAngle();
 					claw.cloop.SetTunings(claw.kp,claw.ki,claw.kd);
 					claw.cloop.SetReference(Setpoint);
-					claw.SetMotors(claw.cloop.Compute(claw.GetAngle()));
+					claw.SetMotors(claw.cloop.Compute(input));
 					
-					if ( (Setpoint - (Setpoint* 0.03)) < claw.GetAngle() && claw.GetAngle() < (Setpoint + (Setpoint* 0.03))){
+					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.05) ){
 						reachDestination = true;
 					}
-					else{
-						reachDestination = false;
-					}
+					
 				}
 
 			}
@@ -107,7 +107,10 @@ public class Claw extends Subsystem {
      	Setpoint = goal;
      		
      }
-     public boolean reachDestination() {
+     public void clear(){
+    	 reachDestination = false;
+     }
+     public boolean isReachDestination() {
      	return reachDestination;
      }
 
@@ -136,6 +139,7 @@ public class Claw extends Subsystem {
     	clawMotor.set(power);
     }
     public double GetAngle() {
+    	this.clear();
     	return clawAngleSensor.getVoltage();
     }
     public boolean isBinPresent() {

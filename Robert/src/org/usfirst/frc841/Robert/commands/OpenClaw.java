@@ -31,7 +31,7 @@ public class  OpenClaw extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.claw.SetGoal( .5 );
+    	Robot.claw.openClaw();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +40,7 @@ public class  OpenClaw extends Command {
 
     // Make this return true when this Command no longer needs to run execute()5
     protected boolean isFinished() {
-        return Robot.claw.reachDestination();
+        return true;
     }
 
     // Called once after isFinished returns true

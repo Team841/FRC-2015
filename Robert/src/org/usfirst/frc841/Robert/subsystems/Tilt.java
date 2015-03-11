@@ -75,19 +75,17 @@ public class Tilt extends Subsystem {
     	    	}
     			@Override
     			public void run() {
+    				double input = tilt.GetAngle();
     				// TODO Auto-generated method stub
     				//Implements PID Loop
-    				tilt.EnablePID = true;
+    				//tilt.EnablePID = true;
     				if (tilt.EnablePID){
     					tilt.cloop.SetTunings(tilt.kp,tilt.ki,tilt.kd);
     					tilt.cloop.SetReference(Setpoint);
-    					tilt.SetMotors(tilt.cloop.Compute(tilt.GetAngle()));
+    					tilt.SetMotors(tilt.cloop.Compute(input));
     					
-    					if ( (Setpoint - (Setpoint* 0.03)) < tilt.GetAngle() && tilt.GetAngle() < (Setpoint + (Setpoint* 0.03))){
+    					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.05) ){
     						reachDestination = true;
-    					}
-    					else{
-    						reachDestination = false;
     					}
     				}
    
@@ -105,7 +103,7 @@ public class Tilt extends Subsystem {
           	EnablePID = false;
           }
           public void SetGoal(double goal){
-          	
+          	reachDestination = false;
           	Setpoint = goal;
           		
           }
@@ -135,6 +133,22 @@ public class Tilt extends Subsystem {
     }
     public double GetAngle() {
     	return TiltAngleSensor.getVoltage();
+    }
+    public void manualtilt(Joystick stick){
+    	if(stick.getX() > 0.5){
+    	//lower elevator
+    		this.SetMotors(-0.5);
+    	}
+    	else{
+    		if(stick.getX() < -0.5){
+    			//raise elevator
+    		this.SetMotors(0.5);
+    		}
+    		else{
+    			this.SetMotors(0);
+    		}
+    	}
+    		
     }
 }
 

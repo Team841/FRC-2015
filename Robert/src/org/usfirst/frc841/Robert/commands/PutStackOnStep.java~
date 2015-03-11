@@ -36,10 +36,10 @@ public class PutStackOnStep extends CommandGroup {
         // arm.
     	
     	 //Keep the angle off the elevator to 90 deg
-     	addSequential (new SetElevatorAngle( 2.2 ));
+     	addSequential (new SetElevatorAngle( .52 ));
      	
     	//Tilt the elevator back to 65 deg
-     	addParallel(new SetElevatorAngle( 2 ));
+     	addParallel(new SetElevatorAngle( .233 ));
      	
      	//Open Intakes
      	addSequential(new ReleaseTote());

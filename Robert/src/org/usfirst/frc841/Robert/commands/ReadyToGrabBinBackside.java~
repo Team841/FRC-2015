@@ -15,11 +15,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-
-public class PickUpBinBack extends CommandGroup {
+public class ReadyToGrabBinBackside extends CommandGroup {
     
-    public  PickUpBinBack() {
-        // Add Commands here:
+    public  ReadyToGrabBinBackside() {
+    	addParallel( new OpenClaw());
+    	addSequential(new SetClawAngle(0.769));
+        
+    	
+    	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -35,17 +38,5 @@ public class PickUpBinBack extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
-    	//The code will ensure that the claw is open
-    	addParallel(new OpenClaw());
-    	
-    	//It will go directly to the angle associated with this value
-    	addSequential(new SetClawAngle( .865 ));
-    	
-    	//It will go up a little bt so it will tilt the bin over 
-    	addSequential(new SetClawAngle( .974 ));
-    	
-    	//This will close the claw automatically
-    	addParallel(new CloseClaw());
     }
 }

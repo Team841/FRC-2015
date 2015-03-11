@@ -36,27 +36,46 @@ public class PickUpTote extends CommandGroup {
         // arm.
     	
     	//Keep the angle of the elevator at 65 deg
-    	addParallel(new SetElevatorAngle( .233 ));
-    	//bring down the carrage to to the top of the one tote
-    	addSequential(new SetElevatorHeight(2));
+    	//addParallel(new SetElevatorAngle( .233 ));
     	
-    	//change the angle off the elevator to 90 deg
-    	addParallel(new SetElevatorAngle( .52));
-    	//bring down the carriage at the same time to the pickup point of the bottom tote
-    	addSequential(new SetElevatorHeight( .0011 ));
+    	//bring down the carrage to to the top of the one tote
+    	addSequential(new HoldTote());
+    	addSequential(new WaitCommand(0.25));
+    	addSequential(new SetElevatorAngle(0.515)); // place tote angle
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(1.674)); // place elevator height
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle(0.377)); //tilt angle midway
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SpitOutTote());
+    	addSequential(new WaitCommand(0.005));
+    	addSequential(new HoldTote());
+    	addSequential(new WaitCommand(0.005));
+    	addSequential(new SetElevatorHeight(0.305)); // down
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SuckTote());
+    	addSequential(new WaitCommand(0.75));
+    	addSequential(new ReleaseTote());
+    	addSequential(new SetElevatorAngle(.515)); // lean forward
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(0.682 )); //hook
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle( 0.239)); // tilt back
+    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(2.542));
     	
     	//Open Intakes
-    	addParallel(new ReleaseTote());
+    	//addParallel(new ReleaseTote());
     	
     	//Turn on Intakes
-    	addSequential(new BringInTote()); 
+    	//addSequential(new BringInTote()); 
     	
     	//bring carrage up to to pick up tote slightly off the ground
-    	addSequential(new SetElevatorHeight( 0.027 ));
+    	//addSequential(new SetElevatorHeight( 0.027 ));
     	//tilt the elevator back to 65 deg
 
     	//bring carrage up to stored level.
-    	addSequential( new SetElevatorHeight( 0.027 ));
+    	//addSequential( new SetElevatorHeight( 0.027 ));
     	
     }
 }

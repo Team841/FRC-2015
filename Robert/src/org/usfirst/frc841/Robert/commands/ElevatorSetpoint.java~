@@ -19,6 +19,7 @@ import org.usfirst.frc841.Robert.Robot;
 /**
  *
  */
+
 public class  ElevatorSetpoint extends Command {
 	Preferences prefs = Preferences.getInstance();
   	private double kp = 1.7;
@@ -71,3 +72,4 @@ public class  ElevatorSetpoint extends Command {
     	Robot.elevator.disableControlLoop();
     }
 }
+

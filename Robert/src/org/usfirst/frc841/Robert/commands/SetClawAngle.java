@@ -36,7 +36,7 @@ public class  SetClawAngle extends Command {
     protected void initialize() {
  
     	Robot.claw.SetGoal(setAngle);
-    	Robot.claw.enableControlLoop();
+    	//Robot.claw.enableControlLoop();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,7 +45,7 @@ public class  SetClawAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.claw.isReachDestination();
     }
 
     // Called once after isFinished returns true

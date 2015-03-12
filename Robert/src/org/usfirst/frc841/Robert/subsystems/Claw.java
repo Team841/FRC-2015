@@ -103,8 +103,9 @@ public class Claw extends Subsystem {
      	EnablePID = false;
      }
      public void SetGoal(double goal){
-     	
+     	reachDestination = false;
      	Setpoint = goal;
+		EnablePID = true;
      		
      }
      public void clear(){

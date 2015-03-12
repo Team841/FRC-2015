@@ -36,7 +36,7 @@ public class  SetElevatorHeight extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.elevator.SetGoal(setHeight);
-    	Robot.elevator.enableControlLoop();
+    	//Robot.elevator.enableControlLoop();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -45,7 +45,7 @@ public class  SetElevatorHeight extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return Robot.elevator.isReachDestination();
     }
 
     // Called once after isFinished returns true

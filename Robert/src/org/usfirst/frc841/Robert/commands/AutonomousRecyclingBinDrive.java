@@ -19,7 +19,7 @@ public class AutonomousRecyclingBinDrive extends CommandGroup {
     
     public  AutonomousRecyclingBinDrive() {    	
     	
-    	addSequential(new DriveMoveForward());
+    	addSequential(new DriveStraightToDistance(40,0.25,true));
     	addSequential(new WaitCommand(3));
     	addSequential(new DriveStop());
     	addSequential( new WaitCommand(15));

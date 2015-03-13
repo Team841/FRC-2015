@@ -29,7 +29,12 @@
 	                  	    <tr><td>0</td><td>Tilt HardStopFront</td></tr>
 	            	    <tr><td>1</td><td>Tilt HardStopBack</td></tr>
 	            	    <tr><td>2</td><td>Intakes TotePresent</td></tr>
-	                                                                                                                                                                                                                                                                                         	    </table>
+	            	    <tr><td>3</td><td>DriveTrain LeftQuad</td></tr>
+	            	    <tr><td>4</td><td>DriveTrain LeftQuad</td></tr>
+	            	    <tr><td>5</td><td>Claw BinPresent</td></tr>
+	            	    <tr><td>6</td><td>DriveTrain RightQuad</td></tr>
+	            	    <tr><td>7</td><td>DriveTrain RightQuad</td></tr>
+	                                                                                                                                                                                                                             	    </table>
                         <h2>PWMs</h2>
 	    <table><tr>
 	        <th class="pound">#</th>
@@ -64,10 +69,12 @@
 	    <table><tr>
 	        <th class="pound">#</th>
 	        <th>Solenoid</th></tr>
-	                  	    <tr><td>0</td><td>Intakes IntakeGrabber Forward </td></tr>
-	            	    <tr><td>1</td><td>Claw ClawGrabber Forward </td></tr>
-	            	    <tr><td>2</td><td>Claw ClawGrabber Reverse </td></tr>
-	                                                            	    <tr><td>7</td><td>Intakes IntakeGrabber Reverse </td></tr>
+	                  	    <tr><td>0</td><td>Claw ClawGrabber Forward </td></tr>
+	            	    <tr><td>1</td><td>Intakes IntakeGrabber Forward </td></tr>
+	            	    <tr><td>2</td><td>DriveTrain Shifter Forward </td></tr>
+	                                    	    <tr><td>5</td><td>DriveTrain Shifter Reverse </td></tr>
+	            	    <tr><td>6</td><td>Intakes IntakeGrabber Reverse </td></tr>
+	            	    <tr><td>7</td><td>Claw ClawGrabber Reverse </td></tr>
 	                                                                                                                                                                                                                             	    </table>
                                                                                                                                                                                                                                                     
                 <h2>Compressor</h2>

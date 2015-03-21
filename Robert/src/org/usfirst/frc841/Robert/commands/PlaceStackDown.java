@@ -17,19 +17,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class PlaceStackDown extends CommandGroup {
     
-    public  PlaceStackDown() {//.714
+    public  PlaceStackDown() {
     	addSequential(new ReleaseTote());
-    	addSequential(new SetElevatorHeight(.691));
-    	//addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorAngle(0.25)); //tilt half way
-    	//addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorHeight(0.44)); //bring all the way down
-    	//addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorAngle(0.339));
-    	//addSequential(new WaitCommand(0.5));
-    	//addSequential(new SetElevatorHeight(0.305));
-    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight((1.92)));
+    	addSequential(new WaitCommand(0.01));
+    	addSequential(new SetElevatorHeight((1.54)));
+    	addSequential(new WaitCommand(0.01));
+    	addSequential(new SetElevatorHeight((1.16)));
+    	addSequential(new WaitCommand(0.01));
+    	addSequential(new SetElevatorHeight((0.8)));
+    	addSequential(new WaitCommand(0.01));
+    	addParallel(new SetElevatorHeight(0.44)); //bring all the way down
+    	addSequential(new SetElevatorAngle(0.415));
     	addSequential(new HoldTote());
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

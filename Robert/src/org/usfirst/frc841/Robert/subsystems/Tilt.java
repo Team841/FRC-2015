@@ -84,7 +84,7 @@ public class Tilt extends Subsystem {
     					tilt.cloop.SetReference(Setpoint);
     					tilt.SetMotors(tilt.cloop.Compute(input));
     					
-    					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.05) ){
+    					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.15) ){
     						reachDestination = true;
     					}
     				}

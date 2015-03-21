@@ -24,7 +24,7 @@ public class PickUpTote extends CommandGroup {
         // these will run in order.
 
         // To run multiple commands at the same time,
-        // use addParallel()
+        // use addParallel()   
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
@@ -40,29 +40,61 @@ public class PickUpTote extends CommandGroup {
     	
     	//bring down the carrage to to the top of the one tote
     	addSequential(new HoldTote());
-    	addSequential(new WaitCommand(0.25));
-    	addSequential(new SetElevatorAngle(0.515)); // place tote angle
-    	addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorHeight(1.674)); // place elevator height
-    	addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorAngle(0.377)); //tilt angle midway
-    	addSequential(new WaitCommand(0.5));
+    	//addSequential(new WaitCommand(0.25));
+    	addSequential(new SetElevatorAngle(0.339)); // place tote angle
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(1.617)); // place elevator height
+    	//addSequential(new WaitCommand(0.5));
+    	//addSequential(new SetElevatorAngle(0.138)); //tilt angle midway
+    	//addSequential(new WaitCommand(0.5));
     	addSequential(new SpitOutTote());
-    	addSequential(new WaitCommand(0.005));
+    	  addSequential(new WaitCommand(0.02));
     	addSequential(new HoldTote());
-    	addSequential(new WaitCommand(0.005));
+    	//addSequential(new WaitCommand(0.005));
+    	addSequential(new SetElevatorHeight(0.44)); // down
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SuckTote());
+    	addSequential(new WaitCommand(0.25));
+    	addSequential(new ReleaseTote());
+    	//addSequential(new SetElevatorAngle(.515)); // lean forward
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(0.691 )); //hook
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle( 0.103)); // tilt back
+    	//
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(2.313));
+    	/*
+    	 * comp robot
+    	 *//*
+    	addSequential(new HoldTote());
+    	//addSequential(new WaitCommand(0.25));
+    	addSequential(new SetElevatorAngle(0.515)); // place tote angle
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(1.674)); // place elevator height
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle(0.377)); //tilt angle midway
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SpitOutTote());
+    	  addSequential(new WaitCommand(0.005));
+    	addSequential(new HoldTote());
+    	//addSequential(new WaitCommand(0.005));
     	addSequential(new SetElevatorHeight(0.305)); // down
-    	addSequential(new WaitCommand(0.5));
+    	//addSequential(new WaitCommand(0.5));
     	addSequential(new SuckTote());
     	addSequential(new WaitCommand(0.75));
     	addSequential(new ReleaseTote());
     	addSequential(new SetElevatorAngle(.515)); // lean forward
-    	addSequential(new WaitCommand(0.5));
+    	//addSequential(new WaitCommand(0.5));
     	addSequential(new SetElevatorHeight(0.682 )); //hook
-    	addSequential(new WaitCommand(0.5));
+    	//addSequential(new WaitCommand(0.5));
     	addSequential(new SetElevatorAngle( 0.239)); // tilt back
-    	addSequential(new WaitCommand(0.5));
+    	//
+    	//addSequential(new WaitCommand(0.5));
     	addSequential(new SetElevatorHeight(2.542));
+    	*/
+    	
+    	
     	
     	//Open Intakes
     	//addParallel(new ReleaseTote());

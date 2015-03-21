@@ -64,10 +64,10 @@ public class  DriveStraightToDistance extends Command {
     	
     	//Update speed
     	if(this.isForward){
-    		Robot.driveTrain.SetLeftRight(this.speed, this.speed+ errorsum);
+    		Robot.driveTrain.SetLeftRight(-this.speed, this.speed+ errorsum);
     	}
     	else{
-    		Robot.driveTrain.SetLeftRight(-this.speed, -this.speed + errorsum);
+    		Robot.driveTrain.SetLeftRight(this.speed, -this.speed + errorsum);
     	}
     }
 

@@ -83,7 +83,7 @@ public class Elevator extends Subsystem {
     					elevator.cloop.SetReference(Setpoint);
     					elevator.SetMotors(elevator.cloop.Compute(input));
     					
-    					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.05) ){
+    					if ( Math.abs(Setpoint - input) < Math.abs(Setpoint* 0.15) ){
     						reachDestination = true;
     					}
     				

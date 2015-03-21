@@ -105,9 +105,10 @@ public class Tilt extends Subsystem {
           public void SetGoal(double goal){
           	reachDestination = false;
           	Setpoint = goal;
+			EnablePID = true;
           		
           }
-          public boolean reachDestination() {
+          public boolean isReachDestination() {
            	return reachDestination;
            }
     	

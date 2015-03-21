@@ -93,7 +93,7 @@ public class OI {
         bringInTote2 = new JoystickButton(coDriver, 2);
         bringInTote2.whileHeld(new SuckTote());
         capBin8 = new JoystickButton(coDriver, 8);
-        capBin8.whileHeld(new StackBinFromBack());
+        capBin8.whenPressed(new StackBinFromBack());
         grabposition7 = new JoystickButton(coDriver, 7);
         grabposition7.whileHeld(new ReadyToGrabBinBackside());
         driver = new Joystick(0);

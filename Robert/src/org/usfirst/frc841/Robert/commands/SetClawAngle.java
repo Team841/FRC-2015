@@ -19,10 +19,9 @@ import org.usfirst.frc841.Robert.Robot;
  */
 
 public class  SetClawAngle extends Command {
-
+   
 	double setAngle;
     public SetClawAngle(double setAngle) {
-        // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.setAngle = setAngle;
 
@@ -36,6 +35,7 @@ public class  SetClawAngle extends Command {
     protected void initialize() {
  
     	Robot.claw.SetGoal(setAngle);
+    	setTimeout(2);
     	//Robot.claw.enableControlLoop();
     }
 
@@ -45,7 +45,7 @@ public class  SetClawAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.claw.isReachDestination();
+        return  ( Robot.claw.isReachDestination() || isTimedOut() );
     }
 
     // Called once after isFinished returns true

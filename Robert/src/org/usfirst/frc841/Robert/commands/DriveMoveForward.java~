@@ -31,7 +31,7 @@ public class  DriveMoveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.SetLeftRight(0.5, -0.45);
+    	Robot.driveTrain.SetLeftRight(0.5, -0.4);
     }
 
     // Called repeatedly when this Command is scheduled to run

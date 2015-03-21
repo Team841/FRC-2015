@@ -34,7 +34,7 @@ public class  SetElevatorAngle extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.tilt.SetGoal(setAngle);
-    	Robot.tilt.enableControlLoop();
+    	//Robot.tilt.enableControlLoop();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,7 +43,8 @@ public class  SetElevatorAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.tilt.reachDestination();
+        return Robot.tilt.isReachDestination();
+	
     }
 
     // Called once after isFinished returns true

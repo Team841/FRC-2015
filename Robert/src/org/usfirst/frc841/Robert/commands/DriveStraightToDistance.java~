@@ -39,6 +39,7 @@ public class  DriveStraightToDistance extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.driveTrain.initEncoder();
+    	Robot.driveTrain.SetLowGear();
     }
 
     // Called repeatedly when this Command is scheduled to run

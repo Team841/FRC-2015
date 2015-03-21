@@ -19,16 +19,16 @@ public class PlaceStackDown extends CommandGroup {
     
     public  PlaceStackDown() {//.714
     	addSequential(new ReleaseTote());
-    	addSequential(new SetElevatorHeight(.714));
-    	addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorAngle(0.377)); //tilt half way
-    	addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorHeight(0.682)); //bring all the way down
-    	addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorAngle(0.515));
-    	addSequential(new WaitCommand(0.5));
-    	addSequential(new SetElevatorHeight(0.305));
-    	addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(.691));
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle(0.25)); //tilt half way
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorHeight(0.44)); //bring all the way down
+    	//addSequential(new WaitCommand(0.5));
+    	addSequential(new SetElevatorAngle(0.339));
+    	//addSequential(new WaitCommand(0.5));
+    	//addSequential(new SetElevatorHeight(0.305));
+    	//addSequential(new WaitCommand(0.5));
     	addSequential(new HoldTote());
         // Add Commands here:
         // e.g. addSequential(new Command1());

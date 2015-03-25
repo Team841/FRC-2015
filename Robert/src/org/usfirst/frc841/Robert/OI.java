@@ -109,6 +109,10 @@ public class OI {
 
 	    
         // SmartDashboard Buttons
+        SmartDashboard.putData("FollowTrajectoryPath", new FollowTrajectoryPath());
+
+        SmartDashboard.putData("PickUpRecycleBin", new PickUpRecycleBin());
+
         SmartDashboard.putData("CoOpertitionStack", new CoOpertitionStack());
 
         SmartDashboard.putData("StackBinFromBack", new StackBinFromBack());

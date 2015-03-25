@@ -75,11 +75,11 @@ public class RobotMap {
         driveTrainRightDrive1 = new VictorSP(9);
         LiveWindow.addActuator("DriveTrain", "RightDrive1", (VictorSP) driveTrainRightDrive1);
         
-        driveTrainLeftQuad = new Encoder(3, 4, false, EncodingType.k4X);
+        driveTrainLeftQuad = new Encoder(3, 4, false, EncodingType.k2X);
         LiveWindow.addSensor("DriveTrain", "LeftQuad", driveTrainLeftQuad);
         driveTrainLeftQuad.setDistancePerPulse(1.0);
         driveTrainLeftQuad.setPIDSourceParameter(PIDSourceParameter.kRate);
-        driveTrainRightQuad = new Encoder(6, 7, false, EncodingType.k4X);
+        driveTrainRightQuad = new Encoder(6, 7, false, EncodingType.k2X);
         LiveWindow.addSensor("DriveTrain", "RightQuad", driveTrainRightQuad);
         driveTrainRightQuad.setDistancePerPulse(1.0);
         driveTrainRightQuad.setPIDSourceParameter(PIDSourceParameter.kRate);

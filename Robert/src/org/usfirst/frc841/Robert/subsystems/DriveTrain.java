@@ -80,16 +80,19 @@ public class DriveTrain extends Subsystem {
 
 	FalconPathPlanner path;
 	
-    private double Y[] = {0,0,0};
-  	private double X[] = {0,1,2};
+    // private double Y[] = {-1,-0.9,-0.8,-0.7,-0.6,-0.5,-0.4,-0.3,-0.2,-0.1,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1};
+	// private double X[] = {-9,-8,-7,-6,-5.15,-4.15,-3.25,-2.4,-1.41,-0.36,0,0.72,2.83,4.8,6.5,8.3,10.3,12,14,16,18};
+    private double Y[] = {-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3};
+  	private double X[] = {-18,-16,-14,-12,-10.3,-8.3,-6.5,-4.8,-2.83,-0.72,0,0.72,2.83,4.8,6.5,8.3,10.3,12,14,16,18};
   	private int period = 100; //mSec 
-  	private double kp = 1; // P
-  	private double ki = 0.0; // I
+  	private double kp = 0.0; // P
+  	private double ki = 0.00; // I
   	private double kd = 0.0; // D
   	private double Setpoint = 3.107; //goal
   	private boolean EnablePID = false; // PID loop enable 
   	private boolean reachDestination = false; // PID within range
   	private int counter1 = 0;
+  	private double PIDOutput = 0;
     Timer ControllerTimer;
  	 PIDLoop cloop;
  	 
@@ -139,10 +142,11 @@ public class DriveTrain extends Subsystem {
 					drivetrain.cloop.SetTunings(drivetrain.kp,drivetrain.ki,drivetrain.kd);
 					drivetrain.cloop2.SetTunings(drivetrain.kp,drivetrain.ki,drivetrain.kd);
 					
-					drivetrain.cloop.SetReference(-3);//-drivetrain.path.smoothLeftVelocity[drivetrain.counter1][1]);
-					drivetrain.cloop2.SetReference(-3);//-drivetrain.path.smoothRightVelocity[drivetrain.counter1][1]);
-					drivetrain.SetLeftRight(-0.5,0.5);//drivetrain.cloop.Compute(input), -drivetrain.cloop2.Compute(input2));//.SetMotors(claw.cloop.Compute(input));
-					
+					drivetrain.cloop.SetReference(-5);//-drivetrain.path.smoothLeftVelocity[drivetrain.counter1][1]);
+					drivetrain.cloop2.SetReference(-5);//-drivetrain.path.smoothRightVelocity[drivetrain.counter1][1]);
+				
+					drivetrain.SetLeftRight( drivetrain.cloop.Compute(input), -drivetrain.cloop2.Compute(input2) );//.SetMotors(claw.cloop.Compute(input));
+					//drivetrain.SetLeftRight(0.7,-0.7);
 					//if(drivetrain.counter1 >= (drivetrain.path.smoothLeftVelocity.length -1)){
 					//	drivetrain.counter1 = 0;
 					//	drivetrain.EnablePID = false;
@@ -225,6 +229,7 @@ public void Drive(Joystick stick){
     }
     //Set the power on the left and right motor drive
     public void SetLeftRight(double LPower, double RPower){
+    	this.PIDOutput = LPower; 
     	leftDrive1.set(LPower);
     	leftDrive2.set(LPower);
     	rightDrive1.set(RPower);
@@ -394,7 +399,8 @@ public void Drive(Joystick stick){
             if (isHighGear) {
                 sensitivity = 1.0;
             } else {
-                sensitivity = 1.0;
+                sensitivity = 0.5;
+                
             }
             angularPower = wheel;
         } else {
@@ -488,6 +494,9 @@ public void Drive(Joystick stick){
   }
   public double getRightSpeed(){
 	  return rightQuad.getRate();
+  }
+  public double getOutput(){
+	  return this.PIDOutput;
   }
   
 }

@@ -155,7 +155,7 @@ public class PIDLoop {
 	    double dInput = (input - lastInput);
 	    
 	    //Compute PID Output
-	    Output = kp * error + ITerm - kd * dInput;
+	    Output = kp * error + ITerm - kd * dInput + this.getFFValue(input);
 	    
 	    if( Output > outMax ){
 	     Output = outMax;

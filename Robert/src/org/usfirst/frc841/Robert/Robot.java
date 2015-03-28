@@ -12,6 +12,8 @@
 package org.usfirst.frc841.Robert;
 
 
+import java.util.Map;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -126,9 +128,9 @@ public class Robot extends IterativeRobot {
     private void updateDriveStation() {
     	//SmartDashboard.putString("DB/String 0","power " + Math.floor(Robot.elevator.getpower()*100)/100.0);
     	//SmartDashboard.putString("DB/String 1","count " + Robot.elevator.getCount());
-    SmartDashboard.putString("DB/String 0","Speed " + Robot.driveTrain.getLeftSpeed()) ;
+    SmartDashboard.putString("DB/String 0","Speed " + Math.floor ( Robot.driveTrain.getLeftSpeed() *100)/100.0 ); 
+    SmartDashboard.putString("DB/String 1","Lpower: " + Math.floor(Robot.driveTrain.getOutput()*1000)/1000.0);
   
-       
     }
      
 }

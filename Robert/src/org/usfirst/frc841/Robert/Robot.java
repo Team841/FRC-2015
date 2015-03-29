@@ -130,6 +130,7 @@ public class Robot extends IterativeRobot {
     	//SmartDashboard.putString("DB/String 1","count " + Robot.elevator.getCount());
     SmartDashboard.putString("DB/String 0","Speed " + Math.floor ( Robot.driveTrain.getLeftSpeed() *100)/100.0 ); 
     SmartDashboard.putString("DB/String 1","Lpower: " + Math.floor(Robot.driveTrain.getOutput()*1000)/1000.0);
+    //SmartDashboard.putString("DB/String 2","Lpower: " + Robot.driveTrain.getCount());
   
     }
      

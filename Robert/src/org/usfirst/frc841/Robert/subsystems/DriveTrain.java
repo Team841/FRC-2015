@@ -76,16 +76,17 @@ public class DriveTrain extends Subsystem {
 
 	double timeStep = 0.1; //period of control loop on Rio, seconds
 
-	double robotTrackWidth = 2; //distance between left and right wheels, feet
+	double robotTrackWidth = 2.167; //distance between left and right wheels, feet
 
-	FalconPathPlanner path;
+	FalconPathPlanner path  = new FalconPathPlanner(waypoints);
 	
-    // private double Y[] = {-1,-0.9,-0.8,-0.7,-0.6,-0.5,-0.4,-0.3,-0.2,-0.1,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1};
+	
+    private double Y[] = {1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1,0,-0.1,-0.2,-0.3,-0.4,-0.5,-0.6,-0.7,-0.8,-0.9,-1};
 	// private double X[] = {-9,-8,-7,-6,-5.15,-4.15,-3.25,-2.4,-1.41,-0.36,0,0.72,2.83,4.8,6.5,8.3,10.3,12,14,16,18};
-    private double Y[] = {-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3};
+    //private double Y[] = {-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3,-0.3};
   	private double X[] = {-18,-16,-14,-12,-10.3,-8.3,-6.5,-4.8,-2.83,-0.72,0,0.72,2.83,4.8,6.5,8.3,10.3,12,14,16,18};
   	private int period = 100; //mSec 
-  	private double kp = 0.0; // P
+  	private double kp = 0.1; // P
   	private double ki = 0.00; // I
   	private double kd = 0.0; // D
   	private double Setpoint = 3.107; //goal
@@ -104,8 +105,8 @@ public class DriveTrain extends Subsystem {
  	 
  	 public DriveTrain () {
  		 
- 		// FalconPathPlanner path = new FalconPathPlanner(waypoints);
- 		 //path.calculate(totalTime, timeStep, robotTrackWidth);
+ 		 //FalconPathPlanner path = new FalconPathPlanner(waypoints);
+ 		 path.calculate(totalTime, timeStep, robotTrackWidth);
  		 cloop = new PIDLoop(X,Y);
  		 cloop.SetControllerDirection(true);
  		 cloop.SetOutputLimits(-1, 1);
@@ -139,19 +140,20 @@ public class DriveTrain extends Subsystem {
 					input = drivetrain.getLeftSpeed();
 					input2 = drivetrain.getRightSpeed();
 					
-					drivetrain.cloop.SetTunings(drivetrain.kp,drivetrain.ki,drivetrain.kd);
-					drivetrain.cloop2.SetTunings(drivetrain.kp,drivetrain.ki,drivetrain.kd);
+					drivetrain.cloop.SetTunings(2*drivetrain.kp,drivetrain.ki,drivetrain.kd);
+					drivetrain.cloop2.SetTunings(2*drivetrain.kp,drivetrain.ki,drivetrain.kd);
 					
-					drivetrain.cloop.SetReference(-5);//-drivetrain.path.smoothLeftVelocity[drivetrain.counter1][1]);
-					drivetrain.cloop2.SetReference(-5);//-drivetrain.path.smoothRightVelocity[drivetrain.counter1][1]);
+					drivetrain.cloop.SetReference(-drivetrain.path.smoothLeftVelocity[drivetrain.counter1][1]);
+					drivetrain.cloop2.SetReference(-drivetrain.path.smoothRightVelocity[drivetrain.counter1][1]);
 				
 					drivetrain.SetLeftRight( drivetrain.cloop.Compute(input), -drivetrain.cloop2.Compute(input2) );//.SetMotors(claw.cloop.Compute(input));
-					//drivetrain.SetLeftRight(0.7,-0.7);
-					//if(drivetrain.counter1 >= (drivetrain.path.smoothLeftVelocity.length -1)){
-					//	drivetrain.counter1 = 0;
-					//	drivetrain.EnablePID = false;
-					//}
-					//drivetrain.counter1++;
+				
+					if(drivetrain.counter1 >= (drivetrain.path.smoothLeftVelocity.length -1)){
+						drivetrain.counter1 = 0;
+						drivetrain.EnablePID = false;
+						drivetrain.SetLeftRight(0, 0);
+					}
+					drivetrain.counter1++;
 				}
 
 			}
@@ -496,8 +498,11 @@ public void Drive(Joystick stick){
 	  return rightQuad.getRate();
   }
   public double getOutput(){
-	  return this.PIDOutput;
+	  return this.path.smoothLeftVelocity[counter1][1];
   }
-  
+ 
+  public int getCount(){
+	  return this.counter1;
+  }
 }
 

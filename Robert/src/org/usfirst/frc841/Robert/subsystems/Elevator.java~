@@ -35,8 +35,8 @@ public class Elevator extends Subsystem {
 
 
 
-  	private double Y[] = {0,0,0};
-  	private double X[] = {0,1,2};
+  	private double Y[] = {0,0,0,0};
+  	private double X[] = {-1,0,1,10};
   	private int period = 100; //mSec 
   	private double kp = 1.7; // P
   	private double ki = 0.01; // I

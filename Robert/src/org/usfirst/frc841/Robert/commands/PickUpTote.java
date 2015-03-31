@@ -39,6 +39,7 @@ public class PickUpTote extends CommandGroup {
     	//addParallel(new SetElevatorAngle( .233 ));
     	
     	//bring down the carrage to to the top of the one tote
+    	addSequential(new OpenPincer());
     	addSequential(new HoldTote());
     	addParallel(new SetElevatorAngle(0.339)); // place tote angle
     	addSequential(new SetElevatorHeight(1.617)); // place elevator heigh
@@ -52,6 +53,8 @@ public class PickUpTote extends CommandGroup {
     	addSequential(new SetElevatorHeight(0.691 )); //hook
     	addSequential(new SetElevatorAngle( 0.113)); // tilt back
     	addSequential(new SetElevatorHeight(2.313));
+    	addSequential(new ClosePincer());
+    	
     	
     	/*
     	 * comp robot

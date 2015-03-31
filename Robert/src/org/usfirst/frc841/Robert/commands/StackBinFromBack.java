@@ -18,9 +18,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class StackBinFromBack extends CommandGroup {
     
     public  StackBinFromBack() {
-    	
+    	addSequential(new OpenPincer());
     	addSequential(new CloseClaw());
-    	addSequential(new SetClawAngle(3.109));
+    	addSequential(new SetClawAngle(1));//3.109
     	addSequential(new WaitCommand(2.5));
     	addSequential(new OpenClaw());
     	addSequential(new WaitCommand(1));

@@ -15,15 +15,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class ReadyToGrabBinBackside extends CommandGroup {
+public class HoldOnHighStack extends CommandGroup {
     
-    public  ReadyToGrabBinBackside() {
+    public  HoldOnHighStack() {
     	addSequential(new OpenPincer());
-    	addParallel( new OpenClaw());
-    	addSequential(new SetClawAngle(0.554));//.769
-        
-    	
-    	// Add Commands here:
+    	addSequential(new SetClawAngle(2.6));
+    	addSequential(new ClosePincer());
+        // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -41,4 +39,3 @@ public class ReadyToGrabBinBackside extends CommandGroup {
         // arm.
     }
 }
-  

@@ -61,8 +61,8 @@ public class OI {
     public JoystickButton capBin8;
     public JoystickButton bringInTote2;
     public JoystickButton openIntakes1;
-    public JoystickButton spitOutTote4;
     public JoystickButton closeIntakes3;
+    public JoystickButton spitOutTote4;
     public JoystickButton placeStackDown11;
     public JoystickButton pickUpTote12;
     public JoystickButton openClaw6;
@@ -84,10 +84,10 @@ public class OI {
         pickUpTote12.whenPressed(new PickUpTote());
         placeStackDown11 = new JoystickButton(coDriver, 11);
         placeStackDown11.whenPressed(new PlaceStackDown());
-        closeIntakes3 = new JoystickButton(coDriver, 3);
-        closeIntakes3.whileHeld(new HoldTote());
         spitOutTote4 = new JoystickButton(coDriver, 4);
         spitOutTote4.whileHeld(new SpitOutTote());
+        closeIntakes3 = new JoystickButton(coDriver, 3);
+        closeIntakes3.whileHeld(new HoldTote());
         openIntakes1 = new JoystickButton(coDriver, 1);
         openIntakes1.whileHeld(new ReleaseTote());
         bringInTote2 = new JoystickButton(coDriver, 2);
@@ -109,6 +109,10 @@ public class OI {
 
 	    
         // SmartDashboard Buttons
+        SmartDashboard.putData("HoldOnHighStack", new HoldOnHighStack());
+
+        SmartDashboard.putData("HoldOnLowStack", new HoldOnLowStack());
+
         SmartDashboard.putData("FollowTrajectoryPath", new FollowTrajectoryPath());
 
         SmartDashboard.putData("PickUpRecycleBin", new PickUpRecycleBin());

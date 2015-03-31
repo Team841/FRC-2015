@@ -32,8 +32,7 @@ public class  ClosePincer extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.pincers.SetGoal( 0.5 );
-    	Robot.pincers.enableControlLoop();
+    	Robot.pincers.Close();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -42,7 +41,7 @@ public class  ClosePincer extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.pincers.reachDestination();
+        return true;// Robot.pincers.reachDestination();
     }
 
     // Called once after isFinished returns true

@@ -37,7 +37,7 @@ public class Claw extends Subsystem {
 
     
 	private double Y[] = {0,0,0};
-  	private double X[] = {0,1,2};
+  	private double X[] = {-1,1,10};
   	private int period = 100; //mSec 
   	private double kp = 5; // P
   	private double ki = 0.01; // I

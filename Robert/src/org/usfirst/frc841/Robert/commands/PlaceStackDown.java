@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PlaceStackDown extends CommandGroup {
     
     public  PlaceStackDown() {
+    	addSequential(new OpenPincer());
     	addSequential(new ReleaseTote());
     	addSequential(new SetElevatorHeight((1.92)));
     	addSequential(new WaitCommand(0.01));

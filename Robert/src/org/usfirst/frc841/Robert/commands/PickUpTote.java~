@@ -45,7 +45,7 @@ public class PickUpTote extends CommandGroup {
     	addSequential(new SpitOutTote());
     	addSequential(new WaitCommand(0.02));
     	addSequential(new HoldTote());
-    	addSequential(new SetElevatorHeight(0.44)); // down
+    	addSequential(new SetElevatorHeight(0.240)); // down
     	addSequential(new SuckTote());
     	addSequential(new WaitCommand(0.25));
     	addSequential(new ReleaseTote());

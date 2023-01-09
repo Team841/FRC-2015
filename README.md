@@ -1,4 +1,4 @@
-![](\Team 841 logo.jpg)
+![](Team 841 logo.jpg)
 FRC 2015
 ========
 
